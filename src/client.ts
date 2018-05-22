@@ -12,7 +12,6 @@ import { DocumentNode } from 'graphql/language/ast';
 import { getOperationAST } from 'graphql/utilities/getOperationAST';
 import $$observable from 'symbol-observable';
 
-import { GRAPHQL_WS } from './protocol';
 import { WS_TIMEOUT } from './defaults';
 import MessageTypes from './message-types';
 
@@ -521,7 +520,7 @@ export class SubscriptionClient {
   }
 
   private connect() {
-    this.client = new this.wsImpl(this.url, GRAPHQL_WS);
+    this.client = new this.wsImpl(this.url);
 
     this.checkMaxConnectTimeout();
 
